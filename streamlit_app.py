@@ -29,7 +29,8 @@ def extract_text(file, file_type):
         return extract_text_from_docx(file)
 
 def extract_emails(text):
-    return re.findall(r'[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+', text)
+    return re.findall(r'\b[A-Za-z][A-Za-z0-9+_.-]*@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b', text)
+
 
 def extract_phone_numbers(text):
     return re.findall(r'\b\d{10}\b', text)
